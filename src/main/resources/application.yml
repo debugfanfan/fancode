@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: FanCode # 项目名称
+
+server:
+  port: 9999  # 端口号
