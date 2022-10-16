@@ -1,0 +1,28 @@
+# -----------------------------------开发环境配置文件-----------------------------------
+spring:
+  application:
+    name: FanCode # 项目名称
+  devtools:
+    restart:
+      enabled: true # 开启或关闭重启功能
+  mvc:
+    pathmatch:
+      # 配置策略
+      matching-strategy: ant_path_matcher # 1. 增加该行配置可解决Spring Boot 6.x 与Swagger 3.0.0 不兼容问题 2，SwaggerConfig类中
+
+server:
+  port: 9999  # 端口号
+logging:
+  config: classpath:logback.xml # 设置日志输出的配置文件
+  level:
+    com.fan.fancode.dao: trace  # mapper日志输出的隔离级别设置为trace，会将操作数据库的sql打印出来，开发时设置为trace方便定位问题，在生产环境中，将这个日志级别再设置成error即可
+
+# -----------------------------------以下是自定义的配置-----------------------------------
+# 配置多个微服务的地址
+url:
+  # 订单微服务的地址
+  orderUrl: http://localhost:8002
+  # 用户微服务的地址
+  userUrl: http://localhost:8003
+  # 购物车微服务的地址
+  shoppingUrl: http://localhost:8004
