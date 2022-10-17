@@ -9,8 +9,17 @@ package com.fan.fancode.domain.entity;
  **/
 public class JsonResult<T> {
 
+    /**
+     * 消息码
+     */
     private Integer code;
+    /**
+     * 消息内容
+     */
     private String msg;
+    /**
+     * 返回数据
+     */
     private T data;
 
     public JsonResult() {

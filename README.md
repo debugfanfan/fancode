@@ -11,6 +11,8 @@
 
 ### 4. Swagger2展示在线的 API 接口文档
 
+### 5. 全局异常处理
+
 ### 参考博客：
 
 https://blog.csdn.net/cuiqwei

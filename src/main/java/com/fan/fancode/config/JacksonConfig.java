@@ -15,23 +15,27 @@ import java.io.IOException;
 
 /**
  * jackson的配置类
+ * // @Configuration表示该类为配置类
  *
  * @author debug_fan
  * @date 2022/10/15 15:14
  **/
-@Configuration  // @Configuration表示该类为配置类
+@Configuration
 public class JacksonConfig {
 
     /**
      * 将Controller返回值中的null值转换为空字符串
+     * <p>
+     * // @Bean表示生成一个由 Spring 容器管理的 bean：objectMapper
+     * // @Primary表示在众多相同的bean中,优先使用用@Primary注解的bean
+     * // @ConditionalOnMissingBean(ObjectMapper.class)表示在不存在ObjectMapper的bean时执行该方法
      *
      * @param builder builder
      * @return objectMapper
      */
-    @Bean   // @Bean表示生成一个由 Spring 容器管理的 bean：objectMapper
-    @Primary // @Primary表示在众多相同的bean中,优先使用用@Primary注解的bean
+    @Bean
+    @Primary
     @ConditionalOnMissingBean(ObjectMapper.class)
-    // @ConditionalOnMissingBean(ObjectMapper.class)表示在不存在ObjectMapper的bean时执行该方法
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
         // 创建ObjectMapper对象
         ObjectMapper objectMapper = builder.createXmlMapper(false).build();

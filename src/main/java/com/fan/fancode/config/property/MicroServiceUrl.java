@@ -6,18 +6,25 @@ import org.springframework.stereotype.Component;
 
 /**
  * 配置多个微服务的地址
- *
+ *  application.yml中找url开头的属性信息
  * @author debug_fan
  * @date 2022/10/16 00:43
  **/
 @Component
-@ConfigurationProperties(prefix = "url")    // application.yml中找url开头的属性信息
+@ConfigurationProperties(prefix = "url")
 public class MicroServiceUrl {
-    // 与application.yml中的url.orderUrl匹配，获取其配置的属性值
+
+    /**
+     * 与application.yml中的url.orderUrl匹配，获取其配置的属性值
+     */
     private String orderUrl;
-    // 与application.yml中的url.userUrl匹配，获取其配置的属性值
+    /**
+     * 与application.yml中的url.userUrl匹配，获取其配置的属性值
+     */
     private String userUrl;
-    // 与application.yml中的url.shoppingUrl匹配，获取其配置的属性值
+    /**
+     * 与application.yml中的url.shoppingUrl匹配，获取其配置的属性值
+     */
     private String shoppingUrl;
 
     public String getOrderUrl() {
